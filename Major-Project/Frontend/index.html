@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AirMate AI | Travel Assistant</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--primary:#5b5cf0;--bg:#f5f6fc;--text:#20213a;--muted:#777b91}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+header{background:white;border-bottom:1px solid #e8e9f2;padding:18px 7%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:23px;font-weight:800;color:var(--primary)}
+.status{font-size:13px;color:#198754}
+main{max-width:850px;margin:38px auto;padding:0 18px}
+.intro{text-align:center;margin-bottom:25px}
+.intro h1{font-size:32px;margin-bottom:10px}
+.intro p{color:var(--muted);line-height:1.6}
+.panel{background:white;border:1px solid #e6e7f1;border-radius:18px;overflow:hidden;box-shadow:0 12px 35px #25265b0b}
+.panel-head{padding:18px 22px;border-bottom:1px solid #eee;display:flex;align-items:center;gap:12px}
+.avatar{width:42px;height:42px;background:#eeeeff;color:var(--primary);border-radius:14px;display:grid;place-items:center;font-weight:bold}
+.panel-head p{font-size:13px;color:var(--muted);margin-top:4px}
+#chat{height:390px;overflow-y:auto;padding:22px;background:#fcfcff}
+.row{display:flex;margin-bottom:16px;gap:9px}
+.row.user{justify-content:flex-end}
+.bubble{white-space:pre-line;max-width:82%;padding:13px 15px;border-radius:15px;line-height:1.5;font-size:14px}
+.bot .bubble{background:#f0f0ff;border:1px solid #e6e6ff}
+.user .bubble{background:var(--primary);color:white}
+.quick{padding:0 20px 16px;display:flex;gap:9px;flex-wrap:wrap}
+.quick button{border:1px solid #dcdcff;background:#f7f7ff;color:var(--primary);padding:9px 13px;border-radius:20px;cursor:pointer}
+.quick button:hover{background:#ededff}
+.composer{padding:16px 18px;border-top:1px solid #eee;display:flex;gap:10px}
+textarea{flex:1;resize:none;height:48px;max-height:100px;border:1px solid #dddfea;border-radius:12px;padding:14px;font:inherit;outline:none}
+textarea:focus{border-color:var(--primary)}
+.send{border:0;border-radius:12px;padding:0 22px;background:var(--primary);color:white;font-weight:bold;cursor:pointer}
+.send:disabled{opacity:.6;cursor:wait}
+.tools{display:flex;justify-content:space-between;align-items:center;padding:0 20px 17px;color:var(--muted);font-size:12px}
+.clear{border:0;background:none;color:var(--primary);cursor:pointer;font-size:13px}
+.note{font-size:12px;color:var(--muted);line-height:1.5;text-align:center;margin-top:17px}
+@media(max-width:600px){main{margin:24px auto}.intro h1{font-size:26px}#chat{height:350px}.composer{padding:12px}.send{padding:0 15px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">✈ AirMate AI</div>
+  <div class="status">● Assistant Online</div>
+</header>
+
+<main>
+  <section class="intro">
+    <h1>Your Intelligent Travel Assistant</h1>
+    <p>Tell AirMate what you need. It will ask follow-up questions<br>to prepare your travel request.</p>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <div class="avatar">AI</div>
+      <div><strong>AirMate Assistant</strong><p>Travel request support</p></div>
+    </div>
+
+    <div id="chat" aria-live="polite">
+      <div class="row bot"><div class="bubble">Hi! I'm AirMate AI. 👋
+
+I can help prepare a flight booking, cancellation, or change request.
+
+What would you like to do?</div></div>
+    </div>
+
+    <div class="quick" id="quick">
+      <button onclick="setMessage('I want to book a flight.')">✈ Book a flight</button>
+      <button onclick="setMessage('I want to cancel my flight.')">Cancel a flight</button>
+      <button onclick="setMessage('I want to change my flight.')">Change a flight</button>
+    </div>
+
+    <form class="composer" id="chatForm">
+      <textarea id="message" placeholder="Type your message..." required></textarea>
+      <button class="send" id="sendButton" type="submit">Send ➤</button>
+    </form>
+
+    <div class="tools">
+      <span>AirMate AI · Machine-learning prototype</span>
+      <button class="clear" onclick="clearChat()">Clear conversation</button>
+    </div>
+  </section>
+
+  <p class="note">Prototype only: no real flights are booked, cancelled, or changed.<br>Conversation memory is temporary and resets when the backend restarts.</p>
+</main>
+
+<script>
+const API_URL = "http://127.0.0.1:5000";
+let conversationId = createConversationId();
+let sending = false;
+
+function createConversationId() {
+    return "conv-" + Date.now() + "-" +
+        Math.random().toString(16).slice(2);
+}
+
+function setMessage(text) {
+    document.getElementById("message").value = text;
+    document.getElementById("message").focus();
+}
+
+function addMessage(text, who) {
+    const chat = document.getElementById("chat");
+    const row = document.createElement("div");
+    row.className = "row " + who;
+
+    const bubble = document.createElement("div");
+    bubble.className = "bubble";
+    bubble.textContent = text;
+
+    row.appendChild(bubble);
+    chat.appendChild(row);
+    chat.scrollTop = chat.scrollHeight;
+}
+
+async function predictIntent(message) {
+    const response = await fetch(API_URL + "/chat", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            message: message,
+            conversation_id: conversationId
+        })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(data.error || "The request failed.");
+    }
+
+    if (!data.reply) {
+        throw new Error("The server returned no reply.");
+    }
+
+    return data;
+}
+
+document.getElementById("chatForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    if (sending) return;
+
+    const input = document.getElementById("message");
+    const button = document.getElementById("sendButton");
+    const message = input.value.trim();
+
+    if (!message) return;
+
+    addMessage(message, "user");
+    input.value = "";
+    sending = true;
+    button.disabled = true;
+    button.textContent = "Wait...";
+
+    try {
+        const data = await predictIntent(message);
+        addMessage(data.reply, "bot");
+        document.getElementById("quick").style.display = "none";
+    } catch (error) {
+        addMessage(
+            "I couldn't connect to the backend. Check that the Flask server is running, then try again.\n\nDetails: " + error.message,
+            "bot"
+        );
+    } finally {
+        sending = false;
+        button.disabled = false;
+        button.textContent = "Send ➤";
+        input.focus();
+    }
+});
+
+async function clearChat() {
+    if (sending) return;
+
+    conversationId = createConversationId();
+    document.getElementById("chat").innerHTML = "";
+    document.getElementById("quick").style.display = "flex";
+
+    addMessage(
+        "Hi! I'm AirMate AI. 👋\n\nI can help prepare a flight booking, cancellation, or change request.\n\nWhat would you like to do?",
+        "bot"
+    );
+
+    document.getElementById("message").value = "";
+    document.getElementById("message").focus();
+}
+</script>
+</body>
+</html>

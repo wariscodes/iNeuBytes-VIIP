@@ -1,0 +1,103 @@
+Misclassified Examples
+======================================================================
+
+Example 1
+Actual intent: book
+Predicted intent: change
+Dialogue: customer: Hi. agent: Hello, how may I aid you today? customer: Due to sudden change of my business meeting because of some technical problem, I need to change my reservation so can you help me with that? agent: May I know your name please to check the status of your reservation? customer: I am Rachel Turner. agent: Thank you. Please stay online for a while, I will check your reservation status and let you know. customer: Sure. agent:  Sorry, there is no reservation matching with your name in our portal to make changes further. customer: No problem, thanks for the information. agent: Thank you for reaching us.
+----------------------------------------------------------------------
+Example 2
+Actual intent: change
+Predicted intent: book
+Dialogue: customer: Hello. agent: Hello. How can I help you? customer: I am John Campbell, planning to visit Los Angeles. Can you please book me a ticket from PHX to LAX? agent: Sure, I will help you to book a flight. Can you please share me your travelling dates? customer: My preferable journey dates are from 03/21 to 03/23. agent: Please give me a moment. customer: Sure, take your own time. agent: In my search, I found a flight for you with single connection. Shall I proceed for booking? customer: Please reserve my ticket with this airlines. agent: Your ticket is booked with flight number 1007 and airline is AA. customer: Thank you for booking my ticket. agent: Welcome, have a safe flight.
+----------------------------------------------------------------------
+Example 3
+Actual intent: change
+Predicted intent: book
+Dialogue: customer: Hi. agent: Hello. customer: James Hill here. agent: How may I assist you today? customer: Can you book a flight ticket for my airport codes that is from SEA to BOS? agent: Sure, may I know your travel dates? customer: The travel dates for the journey are from Sept 02 to Sept 04. agent: Please share me your name. customer: I am James Hill. agent: Sorry, there is no flight at this moment. customer: Not a problem. Thank you. agent: Thank you.
+----------------------------------------------------------------------
+Example 4
+Actual intent: change
+Predicted intent: cancel
+Dialogue: customer: Hello. agent: Hello. How may I aid you today? customer: I have planned an event with my friends but suddenly it got cancelled so please help me with cancelling my reservation. agent: Sure, I am gleeful to help you. Can you please provide your name to check your previous reservation? customer: Sure, myself Daniel Campbell. agent: Ok, please be on hold. customer: Sure, take your time. agent: We regret that, there is no reservation found with your name in our records. customer: It's ok fine, it might be cancelled already. agent: Thank you for reaching us, have a great day. customer: Thank you for your time.
+----------------------------------------------------------------------
+Example 5
+Actual intent: change
+Predicted intent: book
+Dialogue: customer: Hi. agent: Hello, how may I aid you today? customer: Due to sudden change of my business meeting because of some technical problem, I need to change my reservation so can you help me with that? agent: Let me know your name to check your reservation? customer: I am Sandra Miller. agent:  I have checked in reservation list to change your ticket, but could not find any reservation with your name. customer: No problem, thanks for the information. agent: Thank you for choosing us.
+----------------------------------------------------------------------
+Example 6
+Actual intent: change
+Predicted intent: book
+Dialogue: customer: Hello. agent: Hello. customer: I am Nicholas Martinez. agent: How may I support you today? customer: I want to travel from IAD to DEN. Can you help me in booking a flight ticket? agent: Sure, I'll help you in booking. Do you need a halt in between your journey? customer: I want to have a connection of 1. agent: Please let me know your planned travelling dates to proceed further. customer: I would like to travel in the flight on Dec 06 and Dec 08. agent: May I know if you have any other comforts? customer: I want to travel in economy class. agent: Ok, please wait a while. customer: Ok, take your time. agent: Thank you for waiting, we found a economy class ticket providing by Hawaiian airline matching your essential details with single connection. Shall I book the ticket? customer: Book it. agent: Your ticket has been reserved. customer: Thank you for your help. agent: It's pleasure to serve you.
+----------------------------------------------------------------------
+Example 7
+Actual intent: change
+Predicted intent: book
+Dialogue: customer: Hi. agent: Hello, how can I help you? customer: Please assist me in booking a flight ticket from DEN to DFW. agent: Sure, may I know your connection limit? customer: I want a single connection in between my journey. agent: Can you please share your planned travel dates? customer: My planned travel dates are from Dec 27th to Dec 29th. agent: May I know your name please? customer: I am Virginia Jackson. agent: Do you have any other specifications? customer: No. agent: We found an AA airline, flight number: 1006, price: 200 with one connection. customer: Please proceed for booking. agent: Your flight ticket has been reserved. customer: Thank you. agent: Thank you for choosing us.
+----------------------------------------------------------------------
+Example 8
+Actual intent: book
+Predicted intent: change
+Dialogue: customer: Hi. agent: Hello, how may I help you? customer: Could you help me to amend my existing reservation? agent: Sure, I am here to help you. Can you please let me know your good name? customer: I am Betty Miller. agent: Sorry, there is no active reservation on your name in our records. customer: Not a problem, thank you for the information. agent: Thank you for contacting us.
+----------------------------------------------------------------------
+Example 9
+Actual intent: change
+Predicted intent: book
+Dialogue: customer: Hello. agent: Hello. How can I help you? customer: Will you please make me a plane reservation from PHX to SEA? agent: Your travelling dates please? customer: I need to be there by Jan 5th to attend a conference on world health organisation and will come back on Jan 7th. agent: May I know your connection limit please? customer: I need 1 stop over. agent: Do you have any specifications? customer: No, I am fine with above essentials. agent: May I know your name please? customer: I am Gary Edwards. agent: I am sorry no flights found on your route. customer: That's alright, thanks for your assistance. agent: Thank you for choosing us.
+----------------------------------------------------------------------
+Example 10
+Actual intent: change
+Predicted intent: book
+Dialogue: customer: Hello. agent: Hello. customer: I am Eric Adams. agent: How may I help you? Nice to meet you Eric. customer: Can you please help me to book a flight ticket from Los Angeles to Orlando? agent: Sure, tell me your airport codes please? customer: The preferred travel airport codes are LAX to MCO. agent: Now share your travel dates please? customer: Ok, the planned travel dates are Sept 5th and Sept 7th. agent: Wait for a while please. customer: I need a flight which is departing in the evening time with the connection limit 1. agent: Sure. Thanks for your patience. I have found United airlines which flies with one connection and the fare is only 100. customer: Ok, please proceed with the ticket booking. agent: Yes, I have confirmed your flight ticket with flight number 1017. customer: Thank you for your help in reserving a flight ticket. agent: Thank you.
+----------------------------------------------------------------------
+Example 11
+Actual intent: book
+Predicted intent: change
+Dialogue: customer: Hi. agent: Hello. How can I help you today? customer: Due to sudden change of my business meeting because of some technical problem, I need to change my reservation so can you help me with that? agent: Sure, I am here to help you with that, can I know your good name to proceed further? customer: I am Donald Allen. agent:  I am very sorry to inform you that there is no reservation found under your name in our database. customer: Ok, no issues. Thanks for the information. agent: Thank you for reaching us.
+----------------------------------------------------------------------
+Example 12
+Actual intent: book
+Predicted intent: cancel
+Dialogue: customer: Hi. agent: Hello, how may I be at your service today? customer:  I want to cancel my reservation as my project got ramp down. Can you help me with that? agent: May I know your name please to check the status of your reservation? customer: I am Betty Thompson. agent: Thank you. Please stay online for a while, I will check your reservation status and let you know. customer: Sure. agent: Sorry, there is no reservation matching with your name in our portal. customer: No problem, thanks for the information. agent: Thank you for reaching us.
+----------------------------------------------------------------------
+Example 13
+Actual intent: change
+Predicted intent: book
+Dialogue: customer: Hello. agent: Hello. How can I aid you today? customer: I am planning to visit Las Vegas LAS this weekend, can you help me in booking a ticket from Minneapolis MSP? agent: Ok, may I know your name to proceed for further? customer: My name is Elizabeth Phillips. agent: Can you please let me know your desired travelling dates? customer: I am planning to depart on 27 Sep and return on Sep 29. agent: Do you have any preference in flight timings? customer: I am ok with any time. agent: May I know that do you have any airline preference? customer: I prefer to travel in normal-cost airlines. agent: Please mention your connection limit? customer: I need a connecting flight. agent: Let me know your class preference please? customer: I am comfortable to travel in any class. agent: Ok, please wait for a while. customer: Sure, take your time. agent: Sorry, I did not find any flight ticket on your route to reserve. customer: That's ok, thank you for your information. agent: Thank you for connecting with us.
+----------------------------------------------------------------------
+Example 14
+Actual intent: change
+Predicted intent: book
+Dialogue: customer: Hi, I am Samantha Perez. agent: Hello, how can I help you? customer: I need to book a ticket from LAX to ORD to watch the College Football Champion final match. Could you please help me in doing that? agent: Sure, I am here to help you. May I know your journey dates? customer: My travelling dates are 07/26 and return on 07/28. agent: Do you have any connection limit? customer: Make sure that the price should be below 5000 and with single connection. agent: Ok, please wait a moment. customer: Sure. agent: Sorry there is no flight found on your journey details. customer: No problem, thank you for your valuable information. agent: Thanks for choosing us. Have a great day.
+----------------------------------------------------------------------
+Example 15
+Actual intent: change
+Predicted intent: book
+Dialogue: customer: Hello. agent: Hello, how can I assist you today? customer: Due to sudden change of my business meeting because of some technical problem, I need to change my reservation so can you help me with that? agent: Sure, Let me know your name to check your reservation? customer: I am Barbara Hill. agent: Ok, please wait a moment. customer: Sure. agent: Thank you for waiting. I have checked in reservation list to change your ticket, but could not find any reservation with your name. customer: No problem, thank you for the information. agent: Thank you for reaching us.
+----------------------------------------------------------------------
+Example 16
+Actual intent: change
+Predicted intent: book
+Dialogue: customer: Hello, I am Stephanie Moore. agent: Hello, how can I help you today? customer: I want to visit the famous Korean war veterans memorial at Washington DC. Can you help me in booking a flight ticket from WA - SEA to DC - IAD? agent: Sure, It's our pleasure to help you. May I know the preferred dates of travel? customer: I would start on 02/28 and return on 03/01. agent: Do you have any restrictions in price limit? customer: Yes, I need 1 connection. agent: Thanks for providing your details, please wait for a while, I will examine the availability of flight and notify you. customer: Ok. agent: Thanks for waiting, I am sorry to inform you that there is no flights are available on your mentioned details. customer: That's Ok. agent: Thank you for reaching us. Have a  great day. customer: Thanks for your support.
+----------------------------------------------------------------------
+Example 17
+Actual intent: change
+Predicted intent: book
+Dialogue: customer: Hi. agent:  Hello, How exactly I can serve you the best today? customer: Due to sudden change of my business meeting because of some technical problem, I need to change my reservation so can you help me with that? agent:  Let me know your name to check your reservation? customer: I am Betty Lewis. agent: I have checked in reservation list to change your ticket, but could not find any reservation with your name. customer: No problem, thank you for the information. agent: Thank you for choosing us.
+----------------------------------------------------------------------
+Example 18
+Actual intent: change
+Predicted intent: book
+Dialogue: customer: Hi. agent: Hello, How can I best serve you today? customer: Could you help me to amend my existing reservation? agent: Can I know your good name to proceed further? customer: I am Stephanie Brown. agent:  I am very sorry to inform you that there is no reservation found under your name in our database. customer: Not a problem, thank you for the information. agent: Thank you for choosing us.
+----------------------------------------------------------------------
+Example 19
+Actual intent: change
+Predicted intent: book
+Dialogue: customer: Hello. agent: Hello. How can I help you today? customer: Myself Rebecca Perez from Houston. I need your help in booking of a flight ticket from IAH to DFW for an important business meeting, can you please help me out with booking of a flight ticket on those locations? agent: Sure, can you please share your travel dates? customer: Thank you for your response, I want to take off on Sept 20 and please confirm my return ticket also on Sept 22. agent: Sure, is there any another specifications on your booking, so that can I book your ticket? customer: I can spend up to 200 for my flight ticket so please check with that. agent: Ok, please wait for a moment. customer: Ok. agent: JetBlue airlines providing the ticket with the fare of 200 and 1 connection limit. Can I proceed with this one ? customer: Please confirm this flight ticket for me. agent: Ok, your ticket is booked under the aircraft number 1015. customer: Thank you for your help. agent: Most welcome.
+----------------------------------------------------------------------
+Example 20
+Actual intent: change
+Predicted intent: book
+Dialogue: customer: Hello. agent: Hello, how can I help you today? customer: Due to sudden change of my business meeting because of some technical problem, I need to change my reservation so can you help me with that? agent: Let me know your name to check your reservation? customer: I am Gary Walker. agent: Ok, please wait a moment. customer: Sure. agent: Thank you for waiting. I have checked in reservation list to change your ticket, but could not find any reservation with your name. customer: Ok, no issues. Thanks for the information. agent: Thank you for choosing us.
+----------------------------------------------------------------------

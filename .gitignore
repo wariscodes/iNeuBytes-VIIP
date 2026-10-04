@@ -1,0 +1,17 @@
+.venv/
+**/.venv/
+__pycache__/
+*.py[cod]
+.env
+**/.env
+
+Major-Project/Dataset/
+Major-Project/Model/chatbot_model.pkl
+
+# Local environments and datasets
+Task1/Dataset/
+Task1/dataset/
+Task2/Dataset/
+Task2/dataset/
+Major-Project/Dataset/
+Major-Project/Model/chatbot_model.pkl
